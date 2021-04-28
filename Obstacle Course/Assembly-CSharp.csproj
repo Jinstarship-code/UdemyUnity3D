@@ -36,7 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Dropper.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
+     <Compile Include="Assets\Scripts\ObjectHit.cs" />
+     <Compile Include="Assets\Scripts\Scorer.cs" />
+     <Compile Include="Assets\Scripts\Spinner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -568,6 +572,9 @@
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -585,6 +592,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:/Users/SGA/Desktop/Jin/Obstacle Course/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
