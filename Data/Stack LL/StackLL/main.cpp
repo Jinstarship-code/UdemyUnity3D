@@ -24,7 +24,7 @@ void push(int x)
 	}
 }
 
-char pop() 
+int pop() 
 {
 	struct Node *t;
 	char x = -1;
@@ -118,15 +118,46 @@ char *InToPost(const char *infix)
 	return postfix;
 }
 
+int Eval(const char *postfix)
+{
+	int i = 0,x1,x2,r;
+
+	for (i = 0; postfix[i] != '\0'; i++)
+	{
+		if (isOperand(postfix[i]))
+		{
+			push(postfix[i]-'0');  //'0' = 48
+		}
+		else
+		{
+			x2 = pop();
+			x1 = pop();
+			switch (postfix[i])
+			{
+			case '+' :
+				r = x1 + x2;
+				break;
+			case '-':
+				r = x1 - x2;
+				break;
+			case '*':
+				r = x1 * x2;
+				break;
+			case '/':
+				r = x1/ x2;
+				break;
+			}
+			push(r);
+		}
+	}
+	return top->data;
+}
+
+
 int main()
 {
-	const char *infix = "a+b*c-d/e";
-	push('#');
+	const char *postfix = "234*+82/-";
 
-	char *postfix=InToPost(infix);
-
-	printf("%s ", postfix);
-
-
+	printf("Result is %d \n", Eval(postfix));
 	return 0;
 }
