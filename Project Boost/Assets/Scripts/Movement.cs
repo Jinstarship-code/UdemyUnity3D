@@ -5,12 +5,19 @@ using UnityEngine.Audio;
 
 public class Movement : MonoBehaviour
 {
+ 
     [SerializeField] float mainThrust=1000f;
     [SerializeField] float rotationThrust = 20f;
-    
-    Rigidbody rb;
+    [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem leftBoostParticles;
+    [SerializeField] ParticleSystem rightBoostParticles;
+    [SerializeField] ParticleSystem mainBoostParticles;
+
+    Rigidbody rb;
     AudioSource audioSource;
+
+    //bool isAlive=false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,29 +39,37 @@ public class Movement : MonoBehaviour
         {
             rb.AddRelativeForce(Vector3.up*Time.deltaTime*mainThrust);
             if(!audioSource.isPlaying)
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
+            mainBoostParticles.Play();
         }
         else
-        {
+        { 
             audioSource.Stop();
+            mainBoostParticles.Stop();
         }
     }
 
-    private void ProcessRotation()
+    void ProcessRotation()
     {
         if(Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrust);
+            ApplyRotation(rotationThrust,rightBoostParticles);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThrust);
+            ApplyRotation(-rotationThrust,leftBoostParticles);
         }   
+        else
+        {
+            leftBoostParticles.Stop();
+            rightBoostParticles.Stop();
+        }
     }
 
-    void ApplyRotation(float rotationThisFrame)
+    void ApplyRotation(float rotationThisFrame,ParticleSystem LeftOrRightParticles)
     {
         rb.freezeRotation=true; //freezing rotation so we can manually rotate
+        LeftOrRightParticles.Play();
         transform.Rotate(-Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation=false; //unfreezing rotation so the physics
     }
