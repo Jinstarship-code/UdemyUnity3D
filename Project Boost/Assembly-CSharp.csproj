@@ -38,6 +38,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CollisionHandler.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\Ocillator.cs" />
+     <Compile Include="Assets\Scripts\QuitApplication.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
