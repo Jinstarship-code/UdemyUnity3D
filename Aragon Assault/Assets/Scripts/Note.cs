@@ -4,5 +4,6 @@
     - Normal map : uses RGB values to indicate x,y,z facing direction.
 
 
-
+    Canvas Render Mode
+    - https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/UICanvas.html
 */

@@ -1,25 +1,37 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
    [SerializeField] GameObject deathVFX;
+   [SerializeField] GameObject hitVFX;
+
    [SerializeField] Transform parent;
    [SerializeField] int scorePerHit=15;
+   [SerializeField] int hitPoints = 2;
 
    ScoreBoard scoreBoard;
 
-   void Start() 
-   {
-      //scoreBoard = 
-       scoreBoard=FindObjectOfType<ScoreBoard>();
-       Debug.Log(scoreBoard);
-   }
-   void OnParticleCollision(GameObject other)
+   void Start()
+    {
+        scoreBoard = FindObjectOfType<ScoreBoard>();
+
+        AddRigidbody();
+    }
+
+    private void AddRigidbody()
+    {
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+    }
+
+    void OnParticleCollision(GameObject other)
     {
         ProcessHit();
-        KillEnemy();
+
+        if(hitPoints < 1)
+            KillEnemy();
     }
 
    void KillEnemy()
@@ -31,6 +43,8 @@ public class Enemy : MonoBehaviour
 
    void ProcessHit()
     {
+        hitPoints--;
+        GameObject vfx=Instantiate(hitVFX,transform.position,Quaternion.identity);
         scoreBoard.IncreaseScore(scorePerHit);
     }
 }

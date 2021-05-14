@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour
 
 
     float yThrow,xThrow;
+
     void Update()
     {
         ProcessTranslation();
