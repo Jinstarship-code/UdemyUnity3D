@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4115405775313868357}
   - component: {fileID: 4123202264285581825}
   - component: {fileID: 2379402494551359686}
+  - component: {fileID: 7022145369535385617}
   m_Layer: 0
   m_Name: Jab
   m_TagString: Untagged
@@ -94,6 +95,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.115113, y: 2.7828712, z: 10.850533}
   m_Center: {x: 0, y: -0.000013887882, z: 0.0000026226044}
+--- !u!114 &7022145369535385617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137921549047799603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb534114b6bc143a5661999baa1694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathFX: {fileID: 79021564378085649, guid: 8badaa795f8a0ed488acbe299a4d7a3a, type: 3}
+  hitVFX: {fileID: 79021564378085649, guid: e191f9222f171664a84f22b0ffc597a8, type: 3}
+  scorePerHit: 15
+  hitPoints: 2
 --- !u!1 &4137982440204988703
 GameObject:
   m_ObjectHideFlags: 0

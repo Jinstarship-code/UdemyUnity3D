@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 2257267596093125849}
   - component: {fileID: 2267253036446070367}
   - component: {fileID: 8092334448909594515}
+  - component: {fileID: 415866586863635650}
   m_Layer: 0
   m_Name: Tinkle
   m_TagString: Untagged
@@ -305,6 +306,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.228247, y: 4.267086, z: 11.603618}
   m_Center: {x: 0, y: -0.0000029802322, z: 0}
+--- !u!114 &415866586863635650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243403307045966601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb534114b6bc143a5661999baa1694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathFX: {fileID: 79021564378085649, guid: 8badaa795f8a0ed488acbe299a4d7a3a, type: 3}
+  hitVFX: {fileID: 79021564378085649, guid: e191f9222f171664a84f22b0ffc597a8, type: 3}
+  scorePerHit: 15
+  hitPoints: 2
 --- !u!1 &2243575186673662639
 GameObject:
   m_ObjectHideFlags: 0

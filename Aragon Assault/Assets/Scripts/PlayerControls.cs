@@ -32,14 +32,14 @@ public class PlayerControls : MonoBehaviour
 
     void ProcessRotation()
     {
-        float pitchDueToPosition=transform.localPosition.y*positionPitchFactor;
+        float pitchDueToPosition = transform.localPosition.y*positionPitchFactor;
         float pitchDueToControlThrow = yThrow*controlPitchFactor;
 
         float pitch=pitchDueToPosition + pitchDueToControlThrow;
-        float yaw=transform.localPosition.x*positionYawFactor;
-        float roll=xThrow*controlRollFactor;
+        float yaw = transform.localPosition.x*positionYawFactor;
+        float roll = xThrow*controlRollFactor;
 
-        transform.localRotation=Quaternion.Euler(pitch,yaw,roll);
+        transform.localRotation = Quaternion.Euler(pitch,yaw,roll);
     }
 
     void ProcessTranslation()
@@ -62,13 +62,9 @@ public class PlayerControls : MonoBehaviour
     void ProcessFiring()
     {
         if(Input.GetKey(KeyCode.Space))
-        {
             SetLaserActive(true);
-        }
         else
-        {
             SetLaserActive(false);
-        }
   
     }
 
