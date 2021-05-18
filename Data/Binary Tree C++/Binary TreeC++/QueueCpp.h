@@ -1,8 +1,7 @@
-#pragma once
-#include <iostream>
+#include <stdio.h>
 
-using namespace std;
-
+#ifndef QueueCpp_h
+#define QueueCpp_h
 
 class Node
 {
@@ -26,13 +25,13 @@ public:
 
 	void Enqueue(Node *x);
 	Node* Dequeue();
-	void Display();
+	int isEmpty() {return front == rear; }
 };
 
 void Queue::Enqueue(Node *x)
 {
 	if (rear == size - 1)
-		cout << "Queue Full" << endl;
+		printf("Queue Full\n");
 	else
 	{
 		rear++;
@@ -44,7 +43,7 @@ Node* Queue::Dequeue()
 {
 	Node* x = NULL;
 	if (front == rear)
-		cout << "Queue is Empty" << endl;
+		printf("Queue is Empty\n");
 	else
 	{
 		x = Q[front + 1];
@@ -52,3 +51,7 @@ Node* Queue::Dequeue()
 	}
 	return x;
 }
+
+
+
+#endif
