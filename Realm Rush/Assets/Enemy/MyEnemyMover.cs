@@ -7,12 +7,32 @@ public class MyEnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
-    void Start()
+    void OnEnable()
     {
-        StartCoroutine(PrintWaypointName());
+        FindPath();
+        RetrunToStart();
+        StartCoroutine(FollowPath());
     }
 
-    IEnumerator PrintWaypointName()
+
+    void FindPath()
+    {
+        path.Clear();
+
+        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+
+        foreach(GameObject waypoint in waypoints)
+        {
+            path.Add(waypoint.GetComponent<Waypoint>());
+        }
+    }
+
+    void RetrunToStart()
+    {
+        transform.position = path[0].transform.position;
+    }
+
+    IEnumerator FollowPath()
     {
         foreach(Waypoint waypoint in path)
         {
@@ -30,5 +50,13 @@ public class MyEnemyMover : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+
+        gameObject.SetActive(false);
     }
 }
+
+/*
+   - OnEnable : 인스펙터뷰에서 체크를 통해서 게임 오브젝트를 활성화 할 때 사용됩니다. 활성화 할 때마다 호출 됩니다.
+
+
+*/

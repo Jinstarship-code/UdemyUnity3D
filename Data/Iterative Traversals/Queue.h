@@ -18,7 +18,7 @@ struct Queue
 	struct Queue *next;
 } *front = NULL, *rear = NULL;
 
-void enQueue(struct Tree *x)
+void Enqueue(struct Tree *x)
 {
 	struct Queue *t;
 	t = (struct Queue *)malloc(sizeof(struct Queue));
@@ -41,7 +41,10 @@ void enQueue(struct Tree *x)
 		}
 	}
 }
-struct Tree *deQueue()
+
+
+
+struct Tree *Dequeue()
 {
 	struct Tree *x = NULL;
 	struct Queue *t;

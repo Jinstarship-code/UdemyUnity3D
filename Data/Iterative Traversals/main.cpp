@@ -12,10 +12,11 @@ void createTree()
 	root = (struct Tree *)malloc(sizeof(struct Tree));
 	root->data = x;
 	root->lchild = root->rchild = NULL;
-	enQueue(root);
+	Enqueue(root);
+
 	while (!isQueueEmpty())
 	{
-		p = deQueue(); //pop the item from queue and link it to lchild and rchild
+		p = Dequeue(); //pop the item from queue and link it to lchild and rchild
 		printf("Enter the left child of %d :  ", p->data);
 		scanf("%d", &x);
 		//Check for leaf node
@@ -25,7 +26,7 @@ void createTree()
 			t->data = x;
 			t->lchild = t->rchild = NULL;
 			p->lchild = t;
-			enQueue(t); //Insert the address of lchild in queue
+			Enqueue(t); //Insert the address of lchild in queue
 		}
 		printf("Enter the right child of %d : ", p->data);
 		scanf("%d", &x);
@@ -35,46 +36,46 @@ void createTree()
 			t->data = x;
 			t->lchild = t->rchild = NULL;
 			p->rchild = t;
-			enQueue(t);
+			Enqueue(t);
 		}
 	}
 }
 
 //Traversal using Recursion
 
-void preOrder(struct Tree *p)
+void Preorder(struct Tree *p)
 {
 	if (p)
 	{
 		printf("%d ", p->data);
-		preOrder(p->lchild);
-		preOrder(p->rchild);
+		Preorder(p->lchild);
+		Preorder(p->rchild);
 	}
 }
 
-void inOrder(struct Tree *p)
+void Inorder(struct Tree *p)
 {
 	if (p)
 	{
 
-		inOrder(p->lchild);
+		Inorder(p->lchild);
 		printf("%d ", p->data);
-		inOrder(p->rchild);
+		Inorder(p->rchild);
 	}
 }
 
-void postOrder(struct Tree *p)
+void Postorder(struct Tree *p)
 {
 	if (p)
 	{
-		postOrder(p->lchild);
-		postOrder(p->rchild);
+		Postorder(p->lchild);
+		Postorder(p->rchild);
 		printf("%d ", p->data);
 	}
 }
 
 //Traversal Using Iteration
-void IPreOrder(struct Tree *p)
+void IPreorder(struct Tree *p)
 {
 	long int temp;
 
@@ -95,7 +96,7 @@ void IPreOrder(struct Tree *p)
 	}
 }
 
-void IInOrder(struct Tree *p)
+void IInorder(struct Tree *p)
 {
 	long int temp;
 	while (p || !isStackEmpty())
@@ -116,7 +117,7 @@ void IInOrder(struct Tree *p)
 	}
 }
 
-void IPostOrder(struct Tree *p)
+void IPostorder(struct Tree *p)
 {
 	long int temp;
 	while (p || !isStackEmpty())
@@ -145,17 +146,37 @@ void IPostOrder(struct Tree *p)
 	}
 }
 
+void LevelOrder(struct Node *root)
+{
+	struct Queue q;
+	Create(&q, 100);
+
+	printf("%d ", root->data);
+	Enqueue(&q, root);
+
+	while (!isQueueEmpty(q))
+	{
+		root = Dequeue(&q);
+
+		if (root->lchild)
+		{
+			printf("%d ", root->lchild->data);
+			Enqueue(&q, root->lchild);
+		}
+
+		if (root->rchild)
+		{
+			printf("%d ", root->rchild->data);
+			Enqueue(&q, root->rchild);
+		}
+	}
+}
+
+
 int main()
 {
 	createTree();
-	printf("\nPreorder Traversal is : ");
-	IPreOrder(root);
-	printf("\n");
-	printf("\nInorder Traversal is : ");
-	IInOrder(root);
-	printf("\n");
-	printf("\nPostorder Traversal is : ");
-	IPostOrder(root);
-	printf("\n");
+
+
 	return 0;
 }
