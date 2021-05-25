@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3049131714819384361}
   - component: {fileID: 6989233465027370654}
+  - component: {fileID: 4362403028776185839}
   m_Layer: 0
   m_Name: Ballista
   m_TagString: Untagged
@@ -48,6 +49,18 @@ MonoBehaviour:
   weapon: {fileID: 3144582324300694500}
   projectileParticles: {fileID: 655761430326047491}
   range: 15
+--- !u!114 &4362403028776185839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219458064393657486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbb87cae2bbc384ca83627bb9d5f7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3780447553432619625
 GameObject:
   m_ObjectHideFlags: 0
