@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,5 +73,12 @@ public class MyEnemyMover : MonoBehaviour
 /*
    - OnEnable : 인스펙터뷰에서 체크를 통해서 게임 오브젝트를 활성화 할 때 사용됩니다. 활성화 할 때마다 호출 됩니다.
 
+
+
+
+     * Path finding
+    - Breadth-first Search : 방향(up,down,left,right)의 순서를 정하고, 시작점부터 도착점까지 방향의 순서대로 그래프를 만들어서 최적의 경로가 나오는 것을 선택
+    - Dijkstra
+    - A* 
 
 */
