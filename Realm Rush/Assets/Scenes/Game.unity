@@ -5338,6 +5338,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0d952dfb4e96f41ae7b0f74faf7968, type: 3}
+--- !u!1 &846451174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2778667410689294795, guid: ee82830509ef2a14f96cebeb32e6eadc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2778667409932544086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &846451177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846451174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416788ff357f7f94ba48a6c0750ac066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startCoordinates: {x: 3, y: 2}
+  destinationCoordinates: {x: 8, y: 0}
 --- !u!4 &846459456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7981447409687639714, guid: d57b70af0987a5f44bb949599773d763,
@@ -12054,7 +12074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048689f04eefef6409f29ece98694c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 10, y: 10}
+  gridSize: {x: 15, y: 15}
+  unityGridSize: 10
 --- !u!4 &1783413074
 Transform:
   m_ObjectHideFlags: 0
@@ -12084,7 +12105,7 @@ PrefabInstance:
     - target: {fileID: 2456563505926765052, guid: d57b70af0987a5f44bb949599773d763,
         type: 3}
       propertyPath: isPlaceable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7981447409687639714, guid: d57b70af0987a5f44bb949599773d763,
         type: 3}
