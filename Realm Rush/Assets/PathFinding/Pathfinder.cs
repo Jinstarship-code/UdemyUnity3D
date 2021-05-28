@@ -5,9 +5,14 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Vector2Int startCoordinates;
-    [SerializeField] Vector2Int destinationCoordinates;
+    public Vector2Int GetStartCoordinates { get{return startCoordinates;}}
 
+    [SerializeField] Vector2Int destinationCoordinates;
+    public Vector2Int GetDestinationCoordinates { get{return destinationCoordinates;}}
+
+[SerializeField]
     Node startNode;
+    [SerializeField]
     Node destinationNode;
     Node currentSearchNode;
 
@@ -18,22 +23,33 @@ public class Pathfinder : MonoBehaviour
     GridManager gridManager;
     Dictionary<Vector2Int, Node> grid=new Dictionary<Vector2Int, Node>();
 
-    private void Awake() 
+    void Awake() 
     {
         gridManager = FindObjectOfType<GridManager>();
 
         if(gridManager !=null)
+        { 
             grid= gridManager.GetGrid;
-
+            startNode = grid[startCoordinates];
+            destinationNode = grid[destinationCoordinates];
+        }
+        else
+        {
+            Debug.Log("GridManager is Null");
+        }
     }
 
     void Start()
     {
-        startNode = gridManager.GetGrid[startCoordinates];
-        destinationNode = gridManager.GetGrid[destinationCoordinates];
-        
+        GetNewPath();
+    }
+
+    public List<Node> GetNewPath()
+    {
+        gridManager.ResetNodes();
         BreadthFirstSearch();
-        BuildPath();
+
+        return BuildPath();
     }
 
     void ExploreNeighbors()
@@ -63,6 +79,12 @@ public class Pathfinder : MonoBehaviour
 
     void BreadthFirstSearch()
     {
+        startNode.isWalkable = true;
+        destinationNode.isWalkable = true;
+
+        frontier.Clear();
+        reached.Clear();
+
         bool isRunning = true;
 
         frontier.Enqueue(startNode);
@@ -89,15 +111,40 @@ public class Pathfinder : MonoBehaviour
         path.Add(currentNode);
         currentNode.isPath = true;
 
-        while(currentNode.connectedTo !=null)
+        while(currentNode !=null)
         {
             currentNode = currentNode.connectedTo;
-            path.Add(currentNode);
-            currentNode.isPath = true;
+            
+            if(currentNode !=null)
+            {
+                currentNode.isPath = true;
+                path.Add(currentNode);
+            }
         }
 
         path.Reverse();
 
         return path;
+    }
+
+    public bool WillBlockPath(Vector2Int coordinates)
+    {
+        if(grid.ContainsKey(coordinates))
+        {
+            //isWalkable = true를 담아두기 위함.
+            bool previousState = grid[coordinates].isWalkable;
+
+            grid[coordinates].isWalkable = false;
+            List<Node> newPath = GetNewPath();
+            grid[coordinates].isWalkable = previousState;
+
+
+            if(newPath.Count <= 1)
+            {
+                GetNewPath();
+                return true;
+            }
+        }
+            return false;
     }
 }

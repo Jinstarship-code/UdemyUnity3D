@@ -24,7 +24,6 @@ public class CoordinateLabeler : MonoBehaviour
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
 
-
         DisplayCoordinates();
     }
 

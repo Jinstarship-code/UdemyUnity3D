@@ -42,7 +42,6 @@ public class MyObjectPool : MonoBehaviour
             return;
         }  
       }
-
     }
 
     IEnumerator SpawnEnemy()

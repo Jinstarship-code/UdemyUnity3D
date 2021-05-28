@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Node
 {
-    public Vector2Int coordinates = new Vector2Int(2,2);
+    public Vector2Int coordinates = new Vector2Int();
     public bool isWalkable;
     public bool isExplored;
     public bool isPath;

@@ -13,7 +13,6 @@ public class GridManager : MonoBehaviour
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
     public Dictionary<Vector2Int, Node> GetGrid { get { return grid;}}
 
-
     void Awake() 
     {
        CreateGrid();   
@@ -32,6 +31,16 @@ public class GridManager : MonoBehaviour
         if(grid.ContainsKey(coordinates))
         {
             grid[coordinates].isWalkable = false;
+        }
+    }
+
+    public void ResetNodes()
+    {
+        foreach(KeyValuePair<Vector2Int, Node> entry in grid)
+        {
+            entry.Value.connectedTo = null;
+            entry.Value.isExplored = false;
+            entry.Value.isPath = false;
         }
     }
 
