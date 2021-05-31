@@ -46,8 +46,13 @@ public class Pathfinder : MonoBehaviour
 
     public List<Node> GetNewPath()
     {
+        return GetNewPath(startCoordinates);
+    }
+
+    public List<Node> GetNewPath(Vector2Int coordinates)
+    {
         gridManager.ResetNodes();
-        BreadthFirstSearch();
+        BreadthFirstSearch(coordinates);
 
         return BuildPath();
     }
@@ -77,7 +82,7 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    void BreadthFirstSearch()
+    void BreadthFirstSearch(Vector2Int coordinates)
     {
         startNode.isWalkable = true;
         destinationNode.isWalkable = true;
@@ -87,8 +92,8 @@ public class Pathfinder : MonoBehaviour
 
         bool isRunning = true;
 
-        frontier.Enqueue(startNode);
-        reached.Add(startCoordinates, startNode);
+        frontier.Enqueue(grid[coordinates]);
+        reached.Add(coordinates, grid[coordinates]);
 
         while(frontier.Count >0 && isRunning)
         {
@@ -147,4 +152,25 @@ public class Pathfinder : MonoBehaviour
         }
             return false;
     }
+
+    public void NotifyReceivers()
+    {
+        BroadcastMessage("RecalculatePath",false,SendMessageOptions.DontRequireReceiver);
+    }
 }
+
+
+/*
+
+    Component.BroadcastMessage
+    - Declaration
+        public void BroadcastMessage(
+            string methodName, 
+            object parameter = null, 
+            SendMessageOptions options = SendMessageOptions.RequireReceiver);
+
+    - Description
+        - Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
+        - The receiving method can choose to ignore parameter by having zero arguments. 
+        if options is set to SendMessageOptions.RequireReceiver an error is printed when the message is not picked up by any component.
+*/
