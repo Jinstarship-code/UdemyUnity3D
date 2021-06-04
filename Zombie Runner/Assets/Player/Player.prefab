@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7135614539957023662}
+  - component: {fileID: 2020438647985466257}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 2583113192576407058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020438647985466257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16338294580323412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0baa6c19623b4444894ac8a7709289ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 2
 --- !u!114 &2228503956946770229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +66,7 @@ MonoBehaviour:
   hitEffect: {fileID: 2302778100840213949, guid: 73e641f95328d974e8623b2330348ce4,
     type: 3}
   ammoSlot: {fileID: 1559470711338585054}
+  timeBetweenShots: 0.5
 --- !u!1 &2583113192576371252
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 2337074158997199750, guid: a19eb1e559fc17d4bb10f7a8b7dd9137,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a19eb1e559fc17d4bb10f7a8b7dd9137, type: 3}
 --- !u!4 &2645598108622729947 stripped
@@ -590,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 2337074158997199750, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2952093131982790525, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
@@ -670,6 +690,11 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 1559470711338585054}
+    - target: {fileID: 1390411073551159022, guid: d99c620d17fa2be4e8c74749567c594a,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2337074158996965286, guid: d99c620d17fa2be4e8c74749567c594a,
         type: 3}
       propertyPath: m_LocalPosition.x

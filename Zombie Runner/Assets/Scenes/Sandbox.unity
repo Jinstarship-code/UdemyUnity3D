@@ -938,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &391687129
 Transform:
   m_ObjectHideFlags: 0
@@ -3627,15 +3627,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 174791093324115683, guid: d537bd53c9770034eb4c0e35829132b2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2228503956946770229, guid: d537bd53c9770034eb4c0e35829132b2,
         type: 3}
-      propertyPath: timeBetweenShots
-      value: 2
+      propertyPath: range
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2583113192576371252, guid: d537bd53c9770034eb4c0e35829132b2,
         type: 3}
@@ -3697,21 +3692,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2645598108622302971, guid: d537bd53c9770034eb4c0e35829132b2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4328599657658672447, guid: d537bd53c9770034eb4c0e35829132b2,
         type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 2033070134}
-    - target: {fileID: 5474423193394831223, guid: d537bd53c9770034eb4c0e35829132b2,
-        type: 3}
-      propertyPath: timeBetweenShots
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d537bd53c9770034eb4c0e35829132b2, type: 3}
 --- !u!1001 &2988340296985947289

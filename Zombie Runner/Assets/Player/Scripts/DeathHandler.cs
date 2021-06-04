@@ -13,11 +13,12 @@ public class DeathHandler : MonoBehaviour
 
    public void HandleDeath()
    {
-        gameOverCanvas.enabled = true;
-        Time.timeScale = 0f; 
-              
-        //it is not lock
-        Cursor.lockState = CursorLockMode.None; 
-        Cursor.visible = true;
+      gameOverCanvas.enabled = true;
+      Time.timeScale = 0f; 
+      
+      FindObjectOfType<WeaponSwither>().enabled = false;
+
+      Cursor.lockState = CursorLockMode.None; 
+      Cursor.visible = true;
    }
 }
