@@ -2,6 +2,6 @@
 public enum AmmoType
 {
     Bullets,
-    Sheels,
+    Shells,
     mm9,    
 }
